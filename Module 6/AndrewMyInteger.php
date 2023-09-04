@@ -1,3 +1,15 @@
+<!--
+
+Andrew McCloud
+
+September 3, 2023
+
+Professor Voelcker
+
+Module 6 Coding Assignment
+
+-->
+
 <?php
 
 class AndrewMyInteger{
