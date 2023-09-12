@@ -36,19 +36,159 @@
 
         $numOfGuests = $_POST['guestsDropDown'];
 
-        $specialBoarding = $_POST['specialBoardingRadio'];
+        $sBoarding = "";
 
         $email = $_POST['emailTxt'];
 
-        echo $firstName;
-        echo $lastName;
-        echo $email;
+        $newLeaveDate = explode('-', $leaveDate);
+        $newReturnDate = explode('-', $returnDate);
+
+        $leaveYear = $newLeaveDate[0];
+        $returnYear = $newReturnDate[0];
+
+        $leaveMonth = $newLeaveDate[1];
+        $returnMonth = $newReturnDate[1];
+
+        $leaveDay = $newLeaveDate[2];
+        $returnDay = $newReturnDate[2];
+
+        $formStatus = "false";
+
+        $errorCode = "";
+
+
+        if(is_string($firstName) && is_string($lastName)){
+
+            if(checkdate($leaveMonth, $leaveDay, $leaveYear)){
+
+                if(checkdate($returnMonth, $returnDay, $returnYear) && $leaveDate < $returnDate){
+
+                    if($numOfGuests > 0){
+
+                        if(isset($_POST['specialBoardingRadio'])){
+
+                            if($_POST['specialBoardingRadio'] == false){
+
+                                $sBoarding = "Yes";
+
+                            }else{
+
+                                $sBoarding = "No";
+
+                            }
+
+                            if(is_string($email)){
+
+                                $formStatus = "true";
+
+                            }else{
+
+                                $errorCode = "There is an issue with you email";
+
+                            }
+
+                        }else{
+
+                            $errorCode = "Please select yes or no for special boarding";
+
+                        }
+
+                    }else{
+
+                        $errorCode = "Please select one of the options for number of guests";
+
+                    }
+
+                }else{
+
+                    $errorCode = "There was an issue with your return date";
+
+                }
+
+            }else{
+
+                $errorCode = "There was an issue with your leave date";
+
+            }
+
+        }else{
+
+            // If the first name or last name is not good
+            $errorCode = "There was an issue with your first or last name";
+
+        }
+
+        displayResults($firstName, $lastName, $leaveDate, $returnDate, $numOfGuests, $sBoarding, $email, $formStatus, $errorCode);
 
     }
 
 ?>
 
         <div class="container">
+
+            <?php
+            
+                function displayResults($fName, $lName, $lDate, $rDate, $guestNum, $specBoarding, $emailAddress, $status, $error){
+
+                    if($status == "true"){
+
+                        ?>
+
+                            <div class="mt-3 mx-5 text-center" style="border: 1px solid black; background-color: lightgreen">
+
+                                <div class="row">
+
+                                    <div class="col-md-12">
+
+                                        <h1>Booking Successful!</h1>
+
+                                        <h2><?php echo "Name: {$fName} {$lName}"; ?></h2>
+
+                                        <h2><?php echo "Leave Date: {$lDate}" ?></h2>
+
+                                        <h2><?php echo "Return Date: {$rDate}" ?></h2>
+
+                                        <h2><?php echo "Number of Guests: {$guestNum}" ?></h2>
+
+                                        <h2><?php echo "Special Boarding? {$specBoarding}" ?></h2>
+
+                                        <h2><?php echo "An confirmation email has been sent to <u>{$emailAddress}</u>" ?></h2>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        <?php
+
+                    }else{
+
+                        ?>
+
+                            <div class="mt-3 mx-5 text-center" style="border: 1px solid black">
+
+                                <div class="row">
+
+                                    <div class="col-md-12" style="background-color: red">
+
+                                        <h1>An error has occurred!</h1>
+
+                                        <h2><?php echo $error; ?></h2>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        <?php
+
+                    }
+
+                }
+            
+            ?>
 
             <form class="form text-center" action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
         
