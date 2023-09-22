@@ -1,43 +1,54 @@
-<?php
+<!--
 
-    include 'databaseConnection.php';
+Andrew McCloud
+
+September 14, 2023
+
+Professor Voelcker
+
+Module 8 Coding Assignment
+
+-->
+
+<?php
+// Include the file for connecting to the database
+include 'databaseConnection.php';
+
+// If the 'Create Table' button was clicked
+if(isset($_POST['createTableBtn'])){
+
+    // Create an sql statement to create a table in the database
+    $sqlCreate = "CREATE TABLE golfers (
+        firstName VARCHAR(70),
+        lastName VARCHAR(70),
+        age INT,
+        birthCountry VARCHAR(100),
+        dateOfBirth DATE
+    );";
+
+    // Use try/catch to catch any errors with executing the sql statement
+    try{
+
+        // Execute the sql statement in the table
+        $conn->query($sqlCreate);
+
+        ?>
+            <!-- Display a success status -->
+            <h2>Table has been successfully created</h2>
+
+        <?php
+
+    // If there is an error executing the sql statement, the code will go here
+    }catch (Exception $e){
+
+        ?>
+        <!-- Display an error status -->
+        <h2>There was an error creating the table</h2>
+
+        <?php
+
+    }
+
+}
 
 ?>
-
-<!DOCTYPE html>
-
-<html lang='en'>
-
-    <head>
-
-        <meta charset='UTF-8'>
-
-        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-
-        <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM' crossorigin='anonymous'>
-
-        <script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js' integrity='sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r' crossorigin='anonymous'></script>
-
-        <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js' integrity='sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS' crossorigin='anonymous'></script>
-
-        <title>Document</title>
-
-    </head>
-
-    <body>
-
-        <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js' integrity='sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz' crossorigin='anonymous'></script>
-
-        <div class="container text-center">
-
-            <form>
-
-                <button type="submit" name="createTableBtn" class="btn btn-primary">Create Table</button>
-
-            </form>
-
-        </div>
-
-    </body>
-
-</html>
