@@ -55,7 +55,7 @@ Module 8 Coding Assignment
                 <br>
 
                 <button type="submit" name="queryTableBtn" class="btn btn-success mb-3">Query Table</button>
-
+                
             </form>
 
             <!-- Create a div to display the results neatly -->

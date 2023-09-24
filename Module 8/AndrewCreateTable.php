@@ -12,7 +12,7 @@ Module 8 Coding Assignment
 
 <?php
 // Include the file for connecting to the database
-include 'databaseConnection.php';
+include 'AndrewDatabaseConnection.php';
 
 // If the 'Create Table' button was clicked
 if(isset($_POST['createTableBtn'])){
