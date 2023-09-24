@@ -1,3 +1,15 @@
+<!--
+
+Andrew McCloud
+
+September 14, 2023
+
+Professor Voelcker
+
+Module 8 Coding Assignment
+
+-->
+
 <!-- Create our HTML file with bootstrap -->
 <!DOCTYPE html>
 
