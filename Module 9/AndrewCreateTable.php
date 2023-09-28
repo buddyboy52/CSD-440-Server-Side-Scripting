@@ -2,7 +2,7 @@
 
 Andrew McCloud
 
-September 14, 2023
+September 20, 2023
 
 Professor Voelcker
 
@@ -11,6 +11,7 @@ Module 9 Coding Assignment
 -->
 
 <?php
+
 // Include the file for connecting to the database
 include 'AndrewDatabaseConnection.php';
 

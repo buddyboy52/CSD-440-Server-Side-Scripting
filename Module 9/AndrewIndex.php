@@ -2,7 +2,7 @@
 
 Andrew McCloud
 
-September 14, 2023
+September 20, 2023
 
 Professor Voelcker
 
@@ -58,11 +58,12 @@ Module 9 Coding Assignment
 
                 <br>
 
+                <!-- Add 2 links for the search and add pages -->
                 <div class="mt-3">
 
-                    <a href="AndrewQueryForm.php" class="btn btn-dark mb-3">Search Table</a>
+                    <a href="AndrewSearchForm.php" class="btn btn-dark mb-3">Search Table</a>
 
-                    <a href="AndrewCreateField.php" class="btn btn-dark mb-3">Add golfer</a>
+                    <a href="AndrewAddForm.php" class="btn btn-dark mb-3">Add golfer</a>
 
                 </div>
                 
