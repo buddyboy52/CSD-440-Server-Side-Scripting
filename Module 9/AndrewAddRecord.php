@@ -49,7 +49,7 @@ if(isset($_POST['addGolferBtn'])){
                     $birthCountryInput = $_POST['birthCountryTxt'];
 
                     // If the date entered into the dateOfBirthTxt input is not empty
-                    if(!empty($_POST['dateOfBirthTxt'])){
+                    if(!empty($_POST['dateOfBirthTxt']) && dateValidation($_POST['dateOfBirthTxt'])){
 
                         // Create a variable assigned to the date entered into the dateOfBirthTxt input
                         $dateOfBirthInput = $_POST['dateOfBirthTxt'];
@@ -137,6 +137,15 @@ if(isset($_POST['addGolferBtn'])){
         <?php
 
     }
+
+}
+
+// Create a function to validate the date entered
+function dateValidation($date){
+
+    // Use regex and a pattern to make sure the entered value was yyyy-mm-dd
+    // Return true if it does and false if it doesn't
+    return preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', $date);
 
 }
 
