@@ -165,6 +165,10 @@ if(isset($_POST['bookTripBtn'])){
         ?>
             <!-- Display the JSON file -->
             <div class="text-center" style="font-size: 24px; border: 2px solid black">
+
+                <h1 style="color: white; background-color: green">SUCCESS</h1>
+
+                <br>
         
                 <pre class="text-left my-3" style="display: inline-block; text-align: left"><?php echo $data; ?></pre>
         
@@ -178,6 +182,10 @@ if(isset($_POST['bookTripBtn'])){
         ?>
         <!-- Display the error -->
         <div class="text-center" style="border: 2px solid black">
+
+            <h1 style="color: white; background-color: red">ERROR</h1>
+
+            <br>
         
             <h2 class="text-center"><?php echo $errorStatus; ?></h2>
         
