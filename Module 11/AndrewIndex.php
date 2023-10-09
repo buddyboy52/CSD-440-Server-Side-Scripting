@@ -34,12 +34,12 @@ Module 11 Coding Assignment
 
         <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js' integrity='sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz' crossorigin='anonymous'></script>
 
-        <div class="container mt-5">
+        <div class="container text-center mt-5">
 
-            <form action="AndrewGeneratePDF.php" method="post">
+            <form action="AndrewPDF.php" method="post">
 
                 <!-- Create a button to generate the PDF -->
-                <button type="submit" name="generatePDFBtn" class="btn btn-primary">Generate PDF</button>
+                <button type="submit" name="generatePDFBtn" class="btn btn-primary mt-5">Generate PDF</button>
 
             </form>
 
